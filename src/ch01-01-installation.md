@@ -28,7 +28,7 @@ these steps should work as expected with the content of this book.
 If you’re using Linux or macOS, open a terminal and enter the following command:
 
 ```console
-$ curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
+curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
 ```
 
 The command downloads a script and starts the installation of the `rustup`
@@ -48,7 +48,7 @@ C code and will need a C compiler.
 On macOS, you can get a C compiler by running:
 
 ```console
-$ xcode-select --install
+xcode-select --install
 ```
 
 Linux users should generally install GCC or Clang, according to their
@@ -74,7 +74,7 @@ To check whether you have Rust installed correctly, open a shell and enter this
 line:
 
 ```console
-$ rustc --version
+rustc --version
 ```
 
 You should see the version number, commit hash, and commit date for the latest
@@ -103,7 +103,7 @@ In PowerShell, use:
 In Linux and macOS, use:
 
 ```console
-$ echo $PATH
+echo $PATH
 ```
 
 If that’s all correct and Rust still isn’t working, there are a number of
@@ -116,18 +116,15 @@ Once Rust is installed via `rustup`, updating to a newly released version is
 easy. From your shell, run the following update script:
 
 ```console
-$ rustup update
+rustup update
 ```
 
 To uninstall Rust and `rustup`, run the following uninstall script from your
 shell:
 
 ```console
-$ rustup self uninstall
+rustup self uninstall
 ```
-
-<!-- Old headings. Do not remove or links may break. -->
-<a id="local-documentation"></a>
 
 ### Reading the Local Documentation
 
@@ -139,10 +136,26 @@ Any time a type or function is provided by the standard library and you’re not
 sure what it does or how to use it, use the application programming interface
 (API) documentation to find out!
 
-<!-- Old headings. Do not remove or links may break. -->
-<a id="text-editors-and-integrated-development-environments"></a>
+## Oxur
 
-### Using Text Editors and IDEs
+For now, the best way to work with Oxur is to clone the repo and build it from source:
+
+```shell
+cd ~/
+mkdir projects
+cd projects
+git clone https://github.com/oxur/oxur.git
+cd oxur
+make build
+```
+
+This will copy the Oxur compiler, CLI (with REPL), and other utilities into `./bin` for your convenience. You will then need to the Oxur `bin` dir to your path, e.g.:
+
+```bash
+export PATH=$PATH:~/projects/oxur/bin
+```
+
+## Using Text Editors and IDEs
 
 This book makes no assumptions about what tools you use to author Rust code.
 Just about any text editor will get the job done! However, many text editors and
@@ -150,7 +163,7 @@ integrated development environments (IDEs) have built-in support for Rust. You
 can always find a fairly current list of many editors and IDEs on [the tools
 page][tools] on the Rust website.
 
-### Working Offline with This Book
+## Working Offline with This Book
 
 In several examples, we will use Rust packages beyond the standard library. To
 work through those examples, you will either need to have an internet connection
@@ -159,9 +172,9 @@ dependencies ahead of time, you can run the following commands. (We’ll explain
 what `cargo` is and what each of these commands does in detail later.)
 
 ```console
-$ cargo new get-dependencies
-$ cd get-dependencies
-$ cargo add rand@0.8.5 trpl@0.2.0
+cargo new get-dependencies
+cd get-dependencies
+cargo add rand@0.8.5 trpl@0.2.0
 ```
 
 This will cache the downloads for these packages so you will not need to

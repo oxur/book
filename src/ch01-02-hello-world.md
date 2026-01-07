@@ -1,23 +1,21 @@
-## Hello, World!
+## Hello, World
 
-Now that you’ve installed Rust, it’s time to write your first Rust program.
+Now that you’ve installed Rust and Oxur, it’s time to write your first Oxur program.
 It’s traditional when learning a new language to write a little program that
 prints the text `Hello, world!` to the screen, so we’ll do the same here!
 
-> Note: This book assumes basic familiarity with the command line. Rust makes
+> Note: This book assumes basic familiarity with the command line. Oxur makes
 > no specific demands about your editing or tooling or where your code lives, so
 > if you prefer to use an IDE instead of the command line, feel free to use your
 > favorite IDE. Many IDEs now have some degree of Rust support; check the IDE’s
-> documentation for details. The Rust team has been focusing on enabling great
-> IDE support via `rust-analyzer`. See [Appendix D][devtools]<!-- ignore -->
-> for more details.
+> documentation for details.
 
 <!-- Old headings. Do not remove or links may break. -->
 <a id="creating-a-project-directory"></a>
 
 ### Project Directory Setup
 
-You’ll start by making a directory to store your Rust code. It doesn’t matter
+You’ll start by making a directory to store your Oxur code. It doesn’t matter
 to Rust where your code lives, but for the exercises and projects in this book,
 we suggest making a _projects_ directory in your home directory and keeping all
 your projects there.
@@ -28,10 +26,9 @@ and a directory for the “Hello, world!” project within the _projects_ direct
 For Linux, macOS, and PowerShell on Windows, enter this:
 
 ```console
-$ mkdir ~/projects
-$ cd ~/projects
-$ mkdir hello_world
-$ cd hello_world
+cd ~/projects
+mkdir hello-world
+cd hello-world
 ```
 
 For Windows CMD, enter this:
@@ -39,38 +36,33 @@ For Windows CMD, enter this:
 ```cmd
 > mkdir "%USERPROFILE%\projects"
 > cd /d "%USERPROFILE%\projects"
-> mkdir hello_world
-> cd hello_world
+> mkdir hello-world
+> cd hello-world
 ```
 
-<!-- Old headings. Do not remove or links may break. -->
-<a id="writing-and-running-a-rust-program"></a>
+### Oxur Program Basics
 
-### Rust Program Basics
+Next, make a new source file and call it _main.oxr_. The preferred file extension for Oxur files is _.oxr_, but the Oxur compiler will attempt to parse and compile files with the following additional extensions: _.oxur_, _.ox_, and _.lisp_. If you’re using more than one word in your filename, the
+convention is to use a hypen to separate them. For example, use
+_hello-world.oxr_ rather than _hello_world.oxr_ or _helloworld.oxr_.
 
-Next, make a new source file and call it _main.rs_. Rust files always end with
-the _.rs_ extension. If you’re using more than one word in your filename, the
-convention is to use an underscore to separate them. For example, use
-_hello_world.rs_ rather than _helloworld.rs_.
+Now open the _main.oxr_ file you just created and enter the code in Listing 1-1.
 
-Now open the _main.rs_ file you just created and enter the code in Listing 1-1.
+<Listing number="1-1" file-name="main.oxr" caption="A program that prints `Hello, world!`">
 
-<Listing number="1-1" file-name="main.rs" caption="A program that prints `Hello, world!`">
-
-```rust
-fn main() {
-    println!("Hello, world!");
-}
+```oxur
+(deffn main ()
+  (println! "Hello, world!"))
 ```
 
 </Listing>
 
 Save the file and go back to your terminal window in the
-_~/projects/hello_world_ directory. On Linux or macOS, enter the following
+_~/projects/hello-world_ directory. On Linux or macOS, enter the following
 commands to compile and run the file:
 
 ```console
-$ rustc main.rs
+$ ./bin/oxurc main.oxr
 $ ./main
 Hello, world!
 ```
@@ -78,7 +70,7 @@ Hello, world!
 On Windows, enter the command `.\main` instead of `./main`:
 
 ```powershell
-> rustc main.rs
+> .\bin\oxurc main.oxr
 > .\main
 Hello, world!
 ```
@@ -88,44 +80,39 @@ the terminal. If you don’t see this output, refer back to the
 [“Troubleshooting”][troubleshooting]<!-- ignore --> part of the Installation
 section for ways to get help.
 
-If `Hello, world!` did print, congratulations! You’ve officially written a Rust
-program. That makes you a Rust programmer—welcome!
+If `Hello, world!` did print, congratulations! You’ve officially written an Oxur
+program. That makes you a Lisp programmer—welcome!
 
-<!-- Old headings. Do not remove or links may break. -->
-
-<a id="anatomy-of-a-rust-program"></a>
-
-### The Anatomy of a Rust Program
+### The Anatomy of an Oxur Program
 
 Let’s review this “Hello, world!” program in detail. Here’s the first piece of
 the puzzle:
 
-```rust
-fn main() {
+```oxur
+(deffn main ()
 
-}
+)
 ```
 
 These lines define a function named `main`. The `main` function is special: It
-is always the first code that runs in every executable Rust program. Here, the
+is always the first code that runs in every executable Oxur program. Here, the
 first line declares a function named `main` that has no parameters and returns
-nothing. If there were parameters, they would go inside the parentheses (`()`).
+nothing. If there were parameters, they would go inside the parentheses `()`.
 
-The function body is wrapped in `{}`. Rust requires curly brackets around all
-function bodies. It’s good style to place the opening curly bracket on the same
-line as the function declaration, adding one space in between.
+As with all Lisps, the function is wrapped in `()`. Oxur requires parentheses around all
+function functions (in fact, most forms -- but we'll get to that later). For simple functions like this, it’s good style for the function name, args, and return type (if there is one) to go on the first line, with the next line indented by two spaces.
 
-> Note: If you want to stick to a standard style across Rust projects, you can
-> use an automatic formatter tool called `rustfmt` to format your code in a
-> particular style (more on `rustfmt` in
-> [Appendix D][devtools]<!-- ignore -->). The Rust team has included this tool
-> with the standard Rust distribution, as `rustc` is, so it should already be
-> installed on your computer!
+> Note: If you want to stick to a standard style across Oxur projects, you can
+> use an automatic formatter tool called `oxurfmt` to format your code in a
+> particular style (more on `oxurfmt` in
+> [Appendix D][devtools]<!-- ignore -->). The Oxur team has included this tool
+> with the standard Oxur distribution, as `oxurc` is, so it should already be
+> installed in the Oxur `./bin` directory you set up in the "Installation" section.
 
 The body of the `main` function holds the following code:
 
-```rust
-println!("Hello, world!");
+```oxur
+(println! "Hello, world!")
 ```
 
 This line does all the work in this little program: It prints text to the
@@ -141,35 +128,28 @@ function and that macros don’t always follow the same rules as functions.
 Second, you see the `"Hello, world!"` string. We pass this string as an argument
 to `println!`, and the string is printed to the screen.
 
-Third, we end the line with a semicolon (`;`), which indicates that this
-expression is over, and the next one is ready to begin. Most lines of Rust code
-end with a semicolon.
-
-<!-- Old headings. Do not remove or links may break. -->
-<a id="compiling-and-running-are-separate-steps"></a>
-
 ### Compilation and Execution
 
 You’ve just run a newly created program, so let’s examine each step in the
 process.
 
-Before running a Rust program, you must compile it using the Rust compiler by
-entering the `rustc` command and passing it the name of your source file, like
+Before running a Oxur program, you must compile it using the Oxur compiler by
+entering the `oxurc` command and passing it the name of your source file, like
 this:
 
 ```console
-$ rustc main.rs
+oxurc main.oxr
 ```
 
-If you have a C or C++ background, you’ll notice that this is similar to `gcc`
-or `clang`. After compiling successfully, Rust outputs a binary executable.
+If you have used Rust before, you'll notice that Oxur takes the same appoarch, if youf have a C or C++ background, you’ll notice that this is similar to `gcc`
+or `clang`. Like those, after compiling successfully, Oxur outputs a binary executable.
 
 On Linux, macOS, and PowerShell on Windows, you can see the executable by
 entering the `ls` command in your shell:
 
 ```console
 $ ls
-main  main.rs
+main  main.oxr
 ```
 
 On Linux and macOS, you’ll see two files. With PowerShell on Windows, you’ll
@@ -180,34 +160,34 @@ would enter the following:
 > dir /B %= the /B option says to only show the file names =%
 main.exe
 main.pdb
-main.rs
+main.oxr
 ```
 
-This shows the source code file with the _.rs_ extension, the executable file
+This shows the source code file with the _.oxr_ extension, the executable file
 (_main.exe_ on Windows, but _main_ on all other platforms), and, when using
 Windows, a file containing debugging information with the _.pdb_ extension.
 From here, you run the _main_ or _main.exe_ file, like this:
 
 ```console
-$ ./main # or .\main on Windows
+./main # or .\main on Windows
 ```
 
-If your _main.rs_ is your “Hello, world!” program, this line prints `Hello,
+If your _main.oxr_ is your “Hello, world!” program, this line prints `Hello,
 world!` to your terminal.
 
 If you’re more familiar with a dynamic language, such as Ruby, Python, or
 JavaScript, you might not be used to compiling and running a program as
-separate steps. Rust is an _ahead-of-time compiled_ language, meaning you can
+separate steps. Oxur is an _ahead-of-time compiled_ language, meaning you can
 compile a program and give the executable to someone else, and they can run it
-even without having Rust installed. If you give someone a _.rb_, _.py_, or
+even without having Oxur installed. If you give someone a _.rb_, _.py_, or
 _.js_ file, they need to have a Ruby, Python, or JavaScript implementation
 installed (respectively). But in those languages, you only need one command to
 compile and run your program. Everything is a trade-off in language design.
 
-Just compiling with `rustc` is fine for simple programs, but as your project
+Just compiling with `oxurc` is fine for simple programs, but as your project
 grows, you’ll want to manage all the options and make it easy to share your
 code. Next, we’ll introduce you to the Cargo tool, which will help you write
-real-world Rust programs.
+real-world Oxur programs.
 
 [troubleshooting]: ch01-01-installation.html#troubleshooting
 [devtools]: appendix-04-useful-development-tools.html
