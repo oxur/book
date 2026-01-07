@@ -1,6 +1,6 @@
-# The Rust Programming Language
+# The Oxur Programming Language
 
-[The Rust Programming Language](title-page.md)
+[The Oxur Programming Language](title-page.md)
 [Foreword](foreword.md)
 [Introduction](ch00-00-introduction.md)
 

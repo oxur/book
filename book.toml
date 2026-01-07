@@ -2,13 +2,13 @@
 # in `nostarch/book.toml`!
 
 [book]
-title = "The Rust Programming Language"
-authors = ["Steve Klabnik", "Carol Nichols", "Chris Krycho", "Contributions from the Rust Community"]
+title = "The Oxur Programming Language"
+authors = ["Steve Klabnik", "Carol Nichols", "Chris Krycho", "Contributions from the Rust Community", "Duncan McGreggor (Oxur adaptation)"]
 
 [output.html]
-additional-css = ["ferris.css", "theme/2018-edition.css", "theme/semantic-notes.css", "theme/listing.css"]
-additional-js = ["ferris.js"]
-git-repository-url = "https://github.com/rust-lang/book"
+additional-css = ["ferris.css", "theme/2018-edition.css", "theme/semantic-notes.css", "theme/listing.css", "theme/atom-one-dark.min.css"]
+additional-js = ["ferris.js", "theme/oxur-highlight.js"]
+git-repository-url = "https://github.com/oxur/oxur-book"
 
 [output.html.search]
 use-boolean-and = true
@@ -38,12 +38,14 @@ use-boolean-and = true
 "ch20-03-graceful-shutdown-and-cleanup.html" = "ch21-03-graceful-shutdown-and-cleanup.html"
 
 # Do not sync this preprocessor; it is for the HTML renderer only.
-[preprocessor.trpl-note]
-command = "cargo run --manifest-path packages/mdbook-trpl/Cargo.toml --bin mdbook-trpl-note"
+# Temporarily disabled for Oxur adaptation
+# [preprocessor.trpl-note]
+# command = "cargo run --manifest-path packages/mdbook-trpl/Cargo.toml --bin mdbook-trpl-note"
 
-[preprocessor.trpl-listing]
-command = "cargo run --manifest-path packages/mdbook-trpl/Cargo.toml --bin mdbook-trpl-listing"
-output-mode = "default"
+# Temporarily disabled for Oxur adaptation
+# [preprocessor.trpl-listing]
+# command = "cargo run --manifest-path packages/mdbook-trpl/Cargo.toml --bin mdbook-trpl-listing"
+# output-mode = "default"
 
 [rust]
 edition = "2024"

@@ -1,0 +1,99 @@
+/* Custom syntax highlighting theme for Oxur */
+
+/* Base code block styles */
+.hljs {
+  background: #f6f7f6;
+  color: #2f3337;
+}
+
+/* Keywords: deffn, let, match, etc. */
+.hljs-keyword {
+  color: #8959a8;
+  font-weight: bold;
+}
+
+/* Built-in types: i32, String, Vec, etc. */
+.hljs-built_in,
+.hljs-type {
+  color: #c82829;
+}
+
+/* Literals: true, false, None, Some */
+.hljs-literal {
+  color: #f5871f;
+}
+
+/* Strings */
+.hljs-string {
+  color: #718c00;
+}
+
+/* Numbers */
+.hljs-number {
+  color: #f5871f;
+}
+
+/* Comments */
+.hljs-comment {
+  color: #8e908c;
+  font-style: italic;
+}
+
+/* Symbols and keywords args like 'a and :type */
+.hljs-symbol,
+.hljs-attr {
+  color: #3e999f;
+}
+
+/* Function names */
+.hljs-function .hljs-title,
+.hljs-title.function {
+  color: #4271ae;
+}
+
+/* Variables */
+.hljs-variable,
+.hljs-name {
+  color: #2f3337;
+}
+
+/* Operators */
+.hljs-operator {
+  color: #3e999f;
+}
+
+/* Parentheses, brackets */
+.hljs-punctuation {
+  color: #8e908c;
+}
+
+/* Meta (for macro-related highlighting) */
+.hljs-meta {
+  color: #4271ae;
+}
+
+/* Dark theme overrides */
+.coal .hljs,
+.navy .hljs,
+.ayu .hljs {
+  background: #2b2c2f;
+  color: #c5c8c6;
+}
+
+.coal .hljs-keyword,
+.navy .hljs-keyword,
+.ayu .hljs-keyword {
+  color: #b294bb;
+}
+
+.coal .hljs-string,
+.navy .hljs-string,
+.ayu .hljs-string {
+  color: #b5bd68;
+}
+
+.coal .hljs-comment,
+.navy .hljs-comment,
+.ayu .hljs-comment {
+  color: #969896;
+}
